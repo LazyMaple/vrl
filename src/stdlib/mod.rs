@@ -49,8 +49,10 @@ cfg_if::cfg_if! {
         mod compact;
         mod contains;
         mod contains_all;
+        mod crc;
         mod decode_base16;
         mod decode_base64;
+        mod decode_charset;
         mod decode_gzip;
         mod decode_mime_q;
         mod decode_percent;
@@ -64,6 +66,7 @@ cfg_if::cfg_if! {
         mod downcase;
         mod encode_base16;
         mod encode_base64;
+        mod encode_charset;
         mod encode_gzip;
         mod encode_json;
         mod encode_key_value;
@@ -132,6 +135,7 @@ cfg_if::cfg_if! {
         mod mod_func;
         mod now;
         mod object;
+        mod object_from_array;
         mod parse_apache_log;
         mod parse_aws_alb_log;
         mod parse_aws_cloudwatch_log_subscription_message;
@@ -212,6 +216,7 @@ cfg_if::cfg_if! {
         mod uuid_v4;
         mod uuid_v7;
         mod values;
+        mod zip;
 
         // -----------------------------------------------------------------------------
 
@@ -228,6 +233,7 @@ cfg_if::cfg_if! {
         pub use contains_all::ContainsAll;
         pub use decode_base16::DecodeBase16;
         pub use decode_base64::DecodeBase64;
+        pub use decode_charset::DecodeCharset;
         pub use decode_gzip::DecodeGzip;
         pub use decode_mime_q::DecodeMimeQ;
         pub use decode_percent::DecodePercent;
@@ -246,6 +252,7 @@ cfg_if::cfg_if! {
         pub use casing::kebabcase::Kebabcase;
         pub use encode_base16::EncodeBase16;
         pub use encode_base64::EncodeBase64;
+        pub use encode_charset::EncodeCharset;
         pub use encode_gzip::EncodeGzip;
         pub use encode_json::EncodeJson;
         pub use encode_key_value::EncodeKeyValue;
@@ -312,6 +319,7 @@ cfg_if::cfg_if! {
         pub use mod_func::Mod;
         pub use now::Now;
         pub use object::Object;
+        pub use object_from_array::ObjectFromArray;
         pub use parse_apache_log::ParseApacheLog;
         pub use parse_aws_alb_log::ParseAwsAlbLog;
         pub use parse_aws_cloudwatch_log_subscription_message::ParseAwsCloudWatchLogSubscriptionMessage;
@@ -390,10 +398,12 @@ cfg_if::cfg_if! {
         pub use uuid_v4::UuidV4;
         pub use uuid_v7::UuidV7;
         pub use values::Values;
+        pub use zip::Zip;
         pub use self::array::Array;
         pub use self::md5::Md5;
         pub use self::seahash::Seahash;
         pub use self::sha1::Sha1;
+        pub use self::crc::Crc;
     }
 }
 
@@ -413,8 +423,10 @@ pub fn all() -> Vec<Box<dyn Function>> {
         Box::new(Compact),
         Box::new(Contains),
         Box::new(ContainsAll),
+        Box::new(Crc),
         Box::new(DecodeBase16),
         Box::new(DecodeBase64),
+        Box::new(DecodeCharset),
         Box::new(DecodeGzip),
         Box::new(DecodePercent),
         Box::new(DecodePunycode),
@@ -428,6 +440,7 @@ pub fn all() -> Vec<Box<dyn Function>> {
         Box::new(Downcase),
         Box::new(EncodeBase16),
         Box::new(EncodeBase64),
+        Box::new(EncodeCharset),
         Box::new(EncodeGzip),
         Box::new(EncodeJson),
         Box::new(EncodeKeyValue),
@@ -496,6 +509,7 @@ pub fn all() -> Vec<Box<dyn Function>> {
         Box::new(Mod),
         Box::new(Now),
         Box::new(Object),
+        Box::new(ObjectFromArray),
         Box::new(ParseApacheLog),
         Box::new(ParseAwsAlbLog),
         Box::new(ParseAwsCloudWatchLogSubscriptionMessage),
@@ -579,5 +593,6 @@ pub fn all() -> Vec<Box<dyn Function>> {
         Box::new(UuidV4),
         Box::new(UuidV7),
         Box::new(Values),
+        Box::new(Zip),
     ]
 }
