@@ -102,6 +102,7 @@ criterion_group!(
               parse_aws_alb_log,
               parse_aws_cloudwatch_log_subscription_message,
               parse_aws_vpc_flow_log,
+              parse_bytes,
               parse_common_log,
               parse_csv,
               parse_duration,
@@ -1645,6 +1646,15 @@ bench_function! {
 }
 
 bench_function! {
+    parse_bytes => vrl::stdlib::ParseBytes;
+
+    literal {
+        args: func_args![value: "1024KiB", unit: "MiB"],
+        want: Ok(1.0),
+    }
+}
+
+bench_function! {
     parse_common_log => vrl::stdlib::ParseCommonLog;
 
     literal {
@@ -1966,6 +1976,22 @@ bench_function! {
             "upstream_response_time": 0.049,
             "upstream_status": 200,
             "req_id": "752178adb17130b291aefd8c386279e7",
+        })),
+    }
+
+    main {
+        args: func_args![
+            value: r#"172.24.0.3 - - [31/Dec/2024:17:32:06 +0000] "GET / HTTP/1.1" 200 615 "-" "curl/8.11.1" "1.2.3.4, 10.10.1.1""#,
+            format: "main"
+        ],
+        want: Ok(value!({
+            "remote_addr": "172.24.0.3",
+            "timestamp": (DateTime::parse_from_rfc3339("2024-12-31T17:32:06Z").unwrap().with_timezone(&Utc)),
+            "request": "GET / HTTP/1.1",
+            "status": 200,
+            "body_bytes_size": 615,
+            "http_user_agent": "curl/8.11.1",
+            "http_x_forwarded_for": "1.2.3.4, 10.10.1.1",
         })),
     }
 

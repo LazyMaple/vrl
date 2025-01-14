@@ -44,6 +44,7 @@ chacha20poly1305,https://github.com/RustCrypto/AEADs/tree/master/chacha20poly130
 charset,https://github.com/hsivonen/charset,Apache-2.0 OR MIT,Henri Sivonen <hsivonen@hsivonen.fi>
 chrono,https://github.com/chronotope/chrono,MIT OR Apache-2.0,The chrono Authors
 chrono-tz,https://github.com/chronotope/chrono-tz,MIT OR Apache-2.0,The chrono-tz Authors
+ciborium,https://github.com/enarx/ciborium,Apache-2.0,Nathaniel McCallum <npmccallum@profian.com>
 cidr,https://github.com/stbuehler/rust-cidr,MIT,Stefan Bühler <stbuehler@web.de>
 cidr-utils,https://github.com/magiclen/cidr-utils,MIT,Magic Len <len@magiclen.org>
 cipher,https://github.com/RustCrypto/traits,MIT OR Apache-2.0,RustCrypto Developers
@@ -68,6 +69,7 @@ crc32fast,https://github.com/srijs/rust-crc32fast,MIT OR Apache-2.0,"Sam Rijs <s
 crossbeam-channel,https://github.com/crossbeam-rs/crossbeam,MIT OR Apache-2.0,The crossbeam-channel Authors
 crossbeam-epoch,https://github.com/crossbeam-rs/crossbeam,MIT OR Apache-2.0,The crossbeam-epoch Authors
 crossbeam-utils,https://github.com/crossbeam-rs/crossbeam,MIT OR Apache-2.0,The crossbeam-utils Authors
+crunchy,https://github.com/eira-fransham/crunchy,MIT,Vurich <jackefransham@hotmail.co.uk>
 crypto-common,https://github.com/RustCrypto/traits,MIT OR Apache-2.0,RustCrypto Developers
 crypto_secretbox,https://github.com/RustCrypto/nacl-compat/tree/master/crypto_secretbox,Apache-2.0 OR MIT,RustCrypto Developers
 csv,https://github.com/BurntSushi/rust-csv,Unlicense OR MIT,Andrew Gallant <jamslam@gmail.com>
@@ -103,6 +105,7 @@ generic-array,https://github.com/fizyk20/generic-array,MIT,"Bartłomiej Kamińsk
 getrandom,https://github.com/rust-random/getrandom,MIT OR Apache-2.0,The Rand Project Developers
 gimli,https://github.com/gimli-rs/gimli,MIT OR Apache-2.0,The gimli Authors
 grok,https://github.com/daschl/grok,Apache-2.0,Michael Nitschinger <michael@nitschinger.at>
+half,https://github.com/starkat99/half-rs,MIT OR Apache-2.0,Kathryn Long <squeeself@gmail.com>
 hashbrown,https://github.com/rust-lang/hashbrown,MIT OR Apache-2.0,Amanieu d'Antras <amanieu@gmail.com>
 heck,https://github.com/withoutboats/heck,MIT OR Apache-2.0,The heck Authors
 heck,https://github.com/withoutboats/heck,MIT OR Apache-2.0,Without Boats <woboats@gmail.com>
@@ -111,6 +114,7 @@ hex,https://github.com/KokaKiwi/rust-hex,MIT OR Apache-2.0,KokaKiwi <kokakiwi@ko
 hmac,https://github.com/RustCrypto/MACs,MIT OR Apache-2.0,RustCrypto Developers
 home,https://github.com/rust-lang/cargo,MIT OR Apache-2.0,Brian Anderson <andersrb@gmail.com>
 hostname,https://github.com/svartalf/hostname,MIT,"fengcen <fengcen.love@gmail.com>, svartalf <self@svartalf.info>"
+humantime,https://github.com/tailhook/humantime,MIT OR Apache-2.0,Paul Colomiets <paul@colomiets.name>
 iana-time-zone,https://github.com/strawlab/iana-time-zone,MIT OR Apache-2.0,"Andrew Straw <strawman@astraw.com>, René Kijewski <rene.kijewski@fu-berlin.de>, Ryan Lopopolo <rjl@hyperbo.la>"
 iana-time-zone-haiku,https://github.com/strawlab/iana-time-zone,MIT OR Apache-2.0,René Kijewski <crates.io@k6i.de>
 icu_collections,https://github.com/unicode-org/icu4x,Unicode-3.0,The ICU4X Project Developers
@@ -170,6 +174,7 @@ owo-colors,https://github.com/jam1garner/owo-colors,MIT,jam1garner <8260240+jam1
 pad,https://github.com/ogham/rust-pad,MIT,Ben S <ogham@bsago.me>
 parking,https://github.com/smol-rs/parking,Apache-2.0 OR MIT,"Stjepan Glavina <stjepang@gmail.com>, The Rust Project Developers"
 parking_lot,https://github.com/Amanieu/parking_lot,MIT OR Apache-2.0,Amanieu d'Antras <amanieu@gmail.com>
+parse-size,https://github.com/kennytm/parse-size,MIT,kennytm <kennytm@gmail.com>
 paste,https://github.com/dtolnay/paste,MIT OR Apache-2.0,David Tolnay <dtolnay@gmail.com>
 peeking_take_while,https://github.com/fitzgen/peeking_take_while,MIT OR Apache-2.0,Nick Fitzgerald <fitzgen@gmail.com>
 pest,https://github.com/pest-parser/pest,MIT OR Apache-2.0,Dragoș Tiselice <dragostiselice@gmail.com>
