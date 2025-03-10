@@ -1,32 +1,4 @@
-#![deny(
-    warnings,
-    clippy::all,
-    clippy::pedantic,
-    unreachable_pub,
-    unused_allocation,
-    unused_extern_crates,
-    unused_assignments,
-    unused_comparisons
-)]
-#![allow(
-    deprecated,
-    clippy::cast_possible_truncation, // allowed in initial deny commit
-    clippy::cast_precision_loss, // allowed in initial deny commit
-    clippy::cast_sign_loss, // allowed in initial deny commit
-    clippy::default_trait_access, // allowed in initial deny commit
-    clippy::doc_markdown, // allowed in initial deny commit
-    clippy::inefficient_to_string, // allowed in initial deny commit
-    clippy::match_bool, // allowed in initial deny commit
-    clippy::match_same_arms, // allowed in initial deny commit
-    clippy::needless_pass_by_value, // allowed in initial deny commit
-    clippy::semicolon_if_nothing_returned,  // allowed in initial deny commit
-    clippy::similar_names, // allowed in initial deny commit
-    clippy::single_match_else, // allowed in initial deny commit
-    clippy::struct_excessive_bools,  // allowed in initial deny commit
-    clippy::too_many_lines, // allowed in initial deny commit
-    clippy::trivially_copy_pass_by_ref, // allowed in initial deny commit
-)]
-
+#![deny(warnings, clippy::pedantic)]
 pub use wasm_unsupported_function::WasmUnsupportedFunction;
 
 use crate::compiler::Function;
@@ -187,6 +159,7 @@ cfg_if::cfg_if! {
         mod sha1;
         mod sha2;
         mod sha3;
+        mod shannon_entropy;
         mod sieve;
         mod slice;
         mod split;
@@ -204,6 +177,7 @@ cfg_if::cfg_if! {
         mod to_int;
         mod to_regex;
         mod to_string;
+        mod to_syslog_facility_code;
         mod to_syslog_facility;
         mod to_syslog_level;
         mod to_syslog_severity;
@@ -372,6 +346,7 @@ cfg_if::cfg_if! {
         pub use set::Set;
         pub use sha2::Sha2;
         pub use sha3::Sha3;
+        pub use shannon_entropy::ShannonEntropy;
         pub use sieve::Sieve;
         pub use slice::Slice;
         pub use split::Split;
@@ -389,6 +364,7 @@ cfg_if::cfg_if! {
         pub use to_int::ToInt;
         pub use to_regex::ToRegex;
         pub use to_string::ToString;
+        pub use to_syslog_facility_code::ToSyslogFacilityCode;
         pub use to_syslog_facility::ToSyslogFacility;
         pub use to_syslog_level::ToSyslogLevel;
         pub use to_syslog_severity::ToSyslogSeverity;
@@ -414,6 +390,7 @@ cfg_if::cfg_if! {
 
 #[cfg(feature = "stdlib")]
 #[must_use]
+#[allow(clippy::too_many_lines)]
 pub fn all() -> Vec<Box<dyn Function>> {
     vec![
         Box::new(Abs),
@@ -566,6 +543,7 @@ pub fn all() -> Vec<Box<dyn Function>> {
         Box::new(Sha1),
         Box::new(Sha2),
         Box::new(Sha3),
+        Box::new(ShannonEntropy),
         Box::new(Sieve),
         Box::new(ScreamingSnakecase),
         Box::new(Snakecase),
@@ -585,6 +563,7 @@ pub fn all() -> Vec<Box<dyn Function>> {
         Box::new(ToInt),
         Box::new(ToRegex),
         Box::new(ToString),
+        Box::new(ToSyslogFacilityCode),
         Box::new(ToSyslogFacility),
         Box::new(ToSyslogLevel),
         Box::new(ToSyslogSeverity),
